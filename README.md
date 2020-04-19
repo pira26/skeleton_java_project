@@ -1,0 +1,1 @@
+# skeleton_java_project
