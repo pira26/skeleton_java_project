@@ -1,0 +1,63 @@
+server:
+  servlet.context-path:
+  port: 8000
+
+management:
+  info:
+    git.mode: simple
+
+  endpoints:
+    web:
+      exposure:
+        include: health, info
+
+  endpoint:
+    health:
+      show-details: always
+
+spring:
+  datasource:
+
+
+  jpa:
+    open-in-view: false
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      # Hibernate ddl auto (create, create-drop, validate, update)
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    ## Hibernate properties
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+  data:
+    jpa:
+      repositories:
+        enabled: true
+
+  jackson:
+    mapper:
+      DEFAULT_VIEW_INCLUSION: true
+    serialization:
+      indent_output: true
+      WRITE_DATES_AS_TIMESTAMPS: false
+    deserialization:
+      FAIL_ON_IGNORED_PROPERTIES: false
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+      ACCEPT_SINGLE_VALUE_AS_ARRAY: true
+    default-property-inclusion: non_empty
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+
+
+info:
+  build:
+    artifactId: @project.artifactId@
+    groupId: @project.groupId@
+    version: @project.version@

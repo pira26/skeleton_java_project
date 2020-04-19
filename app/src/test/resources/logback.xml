@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For precise / logging spec on test context -->
+
+<configuration debug="false">
+
+    <!-- Console Log output syntax -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Info on cucumber stack -->
+    <logger name="fr.cnp.aae.cucumber.common.CucumberTest" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- Other components logged in warning level -->
+    <root level="WARN">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
