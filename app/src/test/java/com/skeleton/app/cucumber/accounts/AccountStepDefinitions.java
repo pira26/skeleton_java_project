@@ -3,12 +3,14 @@ package com.skeleton.app.cucumber.accounts;
 import com.skeleton.app.cucumber.CucumberStepDefinitions;
 import io.cucumber.java8.En;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Ignore;
 
 import static com.skeleton.app.mocks.AccountMock.mockAccountDTO;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 @Slf4j
+@Ignore
 public class AccountStepDefinitions extends CucumberStepDefinitions implements En {
 
   public AccountStepDefinitions() {
